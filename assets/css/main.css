@@ -14,35 +14,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
 
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Cardo",  sans-serif;
-  --nav-font: "Inter",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Cardo", sans-serif;
+  --nav-font: "Inter", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/* Global Colors */
 :root { 
-  --background-color: #000000; /* Background color for the entire website, including individual sections */
-  --default-color: #fafafa; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #27a776; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #1a1a1a; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #000000;
+  --default-color: #fafafa;
+  --heading-color: #ffffff;
+  --accent-color: #27a776;
+  --surface-color: #1a1a1a;
+  --contrast-color: #ffffff;
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Nav Menu Colors */
 :root {
-  --nav-color: rgba(255, 255, 255, 0.7);  /* Default nav link color (clean, premium) */
-  --nav-hover-color: #ffffff;             /* Hover & active nav links */
-  --nav-mobile-background-color: #1a1a1a; /* Mobile nav background */
-  --nav-dropdown-background-color: #1a1a1a; /* Kept for safety (no dropdowns used) */
-  --nav-dropdown-color: rgba(255, 255, 255, 0.7); /* Mobile nav link color */
-  --nav-dropdown-hover-color: #ffffff;    /* Mobile nav hover & active */
+  --nav-color: rgba(255, 255, 255, 0.7);
+  --nav-hover-color: #ffffff;
+  --nav-mobile-background-color: #1a1a1a;
+  --nav-dropdown-background-color: #1a1a1a;
+  --nav-dropdown-color: rgba(255, 255, 255, 0.7);
+  --nav-dropdown-hover-color: #ffffff;
 }
 
-
-
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
-
+/* Color Presets */
 .light-background {
   --background-color: #1a1a1a;
   --surface-color: #343434;
@@ -81,18 +78,12 @@ a:hover {
   text-decoration: none;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
 }
 
-/* PHP Email Form Messages
-------------------------------*/
+/* PHP Email Form Messages */
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -134,19 +125,13 @@ h6 {
 }
 
 @keyframes php-email-form-loading {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
-/* ===== Premium Header Style ===== */
 .header {
   position: fixed;
   top: 0;
@@ -154,8 +139,6 @@ h6 {
   width: 100%;
   z-index: 999;
   transition: background-color 0.4s ease, box-shadow 0.4s ease;
-}
-.header {
   background: linear-gradient(180deg, #0c0f12, #090b0d);
   padding: 18px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -229,7 +212,6 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Navmenu - Desktop */
-
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
@@ -247,25 +229,23 @@ h6 {
   .navmenu li {
     position: relative;
   }
-  
 
-.navmenu a,
-.navmenu a:focus {
-  color: var(--nav-color);
-  padding: 18px 16px;
-  font-size: 14px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600; /* Infyya-like weight */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  transition: color 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 2.5px; /* Infyya spacing */
-  position: relative;
-}
-
+  .navmenu a,
+  .navmenu a:focus {
+    color: var(--nav-color);
+    padding: 18px 16px;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    position: relative;
+  }
 
   /* Hover + Active text */
   .navmenu li:hover > a,
@@ -300,7 +280,6 @@ h6 {
 }
 
 /* Navmenu - Mobile */
-
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
@@ -387,15 +366,17 @@ h6 {
     display: none !important;
   }
 }
-.contact-page .contact.section {
-    margin-bottom: 150px; /* This creates space after contact section */
-    padding-bottom: 50px; /* Additional padding inside contact section */
-}
 
+/* Contact Page Spacing */
+.contact-page .contact.section {
+  margin-bottom: 150px;
+  padding-bottom: 50px;
+}
 
 .contact-page .footer {
-    padding-top: 50px;
+  padding-top: 50px;
 }
+
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
@@ -520,33 +501,18 @@ h6 {
 }
 
 @keyframes lineincrease {
-  0% {
-    height: 0%;
-  }
-
-  100% {
-    height: 100%;
-  }
+  0% { height: 0%; }
+  100% { height: 100%; }
 }
 
 @keyframes linemove {
-  0% {
-    transform: translateY(200%);
-  }
-
-  100% {
-    transform: translateY(-100%);
-  }
+  0% { transform: translateY(200%); }
+  100% { transform: translateY(-100%); }
 }
 
 @keyframes preloaderfinish {
-  0% {
-    width: 5 0%;
-  }
-
-  100% {
-    width: 0%;
-  }
+  0% { width: 5 0%; }
+  100% { width: 0%; }
 }
 
 /*--------------------------------------------------------------
@@ -666,7 +632,6 @@ section,
 }
 
 @media (max-width: 1199px) {
-
   section,
   .section {
     scroll-margin-top: 66px;
@@ -714,17 +679,15 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-/* Remove extra space below hero */
-
 .hero {
   width: 100%;
-  min-height:100vh ; /* IMPORTANT: fills screen */
+  min-height: 100vh;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
-  background: #000; /* matches premium dark look */
+  background: #000;
 }
 
 .hero.section {
@@ -791,7 +754,6 @@ section,
   }
 }
 
-
 /*--------------------------------------------------------------
 # Gallery Section
 --------------------------------------------------------------*/
@@ -800,7 +762,6 @@ section,
   overflow: hidden;
   border-radius: 10px;
 }
-
 
 .gallery .gallery-item img {
   transition: 0.3s;
@@ -856,10 +817,9 @@ section,
   margin: 0;
 }
 
-/* ==================================
-   ABOUT PAGE HEADER ONLY
-================================== */
-
+/*--------------------------------------------------------------
+# About Page Header Only
+--------------------------------------------------------------*/
 .about-page .about-header {
   background-color: #111;
   transition: background-color 0.4s ease, padding 0.4s ease;
@@ -870,29 +830,32 @@ section,
 .about-page .about-header.about-transparent {
   background-color: rgba(0, 0, 0, 0);
 }
+
 .about-page .page-hero {
   margin-top: 0;
 }
+
 .about-hero {
   position: relative;
-  padding: 120px 0 90px; /* extra top padding for header overlap */
+  padding: 120px 0 90px;
 }
 
 /* INFŸA-style micro text positioning */
 .about-page .about-hero .hero-content {
-  transform: translateY(50px); /* tweak: 14–22px */
+  transform: translateY(50px);
 }
+
 /* Use navbar font for ABOUT texts */
 .about-page .about-hero h1,
 .about-page .about-hero .breadcrumb,
 .about-page .about-hero .breadcrumb a {
-  font-family: 'Inter',' Roboto';
+  font-family: 'Inter', 'Roboto';
 }
 
 .about-page .about-hero {
   position: relative;
-  margin-top: -90px; /* pulls hero under header */
-  padding: 210px 0 100px; /* space for header + content */
+  margin-top: -90px;
+  padding: 210px 0 100px;
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
     url("../img/gallery/AboutBG.jpeg");
@@ -900,6 +863,7 @@ section,
   background-position: center;
   color: #fff;
 }
+
 .about-page .about-header {
   background: #0f0f0f;
   transition: background 0.4s ease;
@@ -911,15 +875,12 @@ section,
   background: transparent;
 }
 
-
-
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-
 .about-section {
   background: #111;
-  height: 95vh;              /* NOT full screen */
+  height: 95vh;
   padding: 0 !important;
   margin: 0 !important;
   display: flex;
@@ -946,14 +907,14 @@ section,
   background: #111;
   color: #fff;
   display: flex;
-  align-items: center;       /* vertical centering */
-  justify-content: center;   /* centers content vertically INSIDE padding */
-  padding: 140px 90px;  
+  align-items: center;
+  justify-content: center;
+  padding: 140px 90px;
 }
 
 .content-wrapper { 
   max-width: 560px;
-  width: 100%;         /* controls text width */
+  width: 100%;
 }
 
 .about-content h2 {
@@ -967,7 +928,7 @@ section,
   font-size: 15px;
   line-height: 1.7;
   color: #cfcfcf;
-  margin-bottom: 16px;       /* tighter spacing */
+  margin-bottom: 16px;
 }
 
 .about-btn {
@@ -989,8 +950,7 @@ section,
   color: #111;
 }
 
- /* Responsive */
-
+/* Responsive */
 @media (max-width: 991px) {
   .about-section {
     height: auto;
@@ -1008,14 +968,10 @@ section,
     font-size: 28px;
   }
 }
-/* ----------------------------------
-   PAGE HERO / BREADCRUMB (ABOUT)
------------------------------------*/
 
-
-
-
-
+/*--------------------------------------------------------------
+# Page Hero / Breadcrumb (About)
+--------------------------------------------------------------*/
 .about-hero .hero-content {
   display: flex;
   justify-content: space-between;
@@ -1070,8 +1026,6 @@ section,
   }
 }
 
-
-
 /*--------------------------------------------------------------
 # Gallery Details Section
 --------------------------------------------------------------*/
@@ -1109,7 +1063,6 @@ section,
 }
 
 @media (max-width: 575px) {
-
   .gallery-details .swiper-button-prev,
   .gallery-details .swiper-button-next {
     display: none;
@@ -1247,10 +1200,9 @@ section,
   padding: 0;
 }
 
-/* -------------------------------------------------------
-   HOME PAGE SERVICES SECTION(OUR DESIGN & BUILD SERVICES)
-----------------------------------------------------------*/
-
+/*--------------------------------------------------------------
+# Home Page Services Section (OUR DESIGN & BUILD SERVICES)
+--------------------------------------------------------------*/
 .home-services-section {
   background: #111111;
   padding: 120px 0;
@@ -1263,7 +1215,7 @@ section,
   font-weight: 600;
 }
 
-/* _._ Divider */
+/* Divider */
 .home-services-header .divider {
   display: flex;
   justify-content: center;
@@ -1343,29 +1295,25 @@ section,
   transform: scaleX(1);
 }
 
-
-
-
 .home-services-card:hover img {
   transform: scale(1.05);
   transition: transform 0.6s ease;
 }
 
-/* --------------------------------------------------
-   RESPONSIVE ADJUSTMENTS – SERVICES SECTION
--------------------------------------------------- */
-
+/*--------------------------------------------------------------
+# Responsive Adjustments – Services Section
+--------------------------------------------------------------*/
 /* Large tablets (≤ 1200px) */
 @media (max-width: 1200px) {
-  .home-services{
+  .home-services-section {
     padding: 100px 0;
   }
 
-.home-services-card {
+  .home-services-card {
     height: 280px;
   }
 
-.home-services-header h2 {
+  .home-services-header h2 {
     font-size: 30px;
   }
 }
@@ -1376,48 +1324,48 @@ section,
     padding: 90px 0;
   }
 
-.home-services-header h2 {
+  .home-services-header h2 {
     font-size: 28px;
     letter-spacing: 2px;
   }
 
-.home-services-card {
+  .home-services-card {
     height: 260px;
   }
 
-.home-services-overlay h3 {
+  .home-services-overlay h3 {
     font-size: 18px;
   }
 
-.home-services-overlay p {
+  .home-services-overlay p {
     font-size: 13px;
   }
 }
 
 /* Small tablets / large phones (≤ 768px) */
 @media (max-width: 768px) {
-.home-services-section {
+  .home-services-section {
     padding: 80px 0;
   }
 
-.home-services-header h2 {
+  .home-services-header h2 {
     font-size: 24px;
   }
 
-.home-services-header .divider span {
+  .home-services-header .divider span {
     width: 60px;
   }
 
-.home-services-card {
+  .home-services-card {
     height: 240px;
   }
 
-.home-services-overlay {
+  .home-services-overlay {
     padding: 20px;
   }
 
   /* Always show arrow on mobile (no hover) */
- .home-services-underline {
+  .home-services-underline {
     width: 40px;
     opacity: 1;
     transform: none;
@@ -1426,41 +1374,39 @@ section,
 
 /* Mobile phones (≤ 576px) */
 @media (max-width: 576px) {
-.home-services-section {
+  .home-services-section {
     padding: 70px 0;
   }
 
-.home-services-header h2 {
+  .home-services-header h2 {
     font-size: 22px;
     letter-spacing: 1.5px;
   }
 
-.home-services-card {
+  .home-services-card {
     height: 220px;
   }
 
-.home-services-overlay h3 {
+  .home-services-overlay h3 {
     font-size: 16px;
     letter-spacing: 1.5px;
   }
 
-.home-services-overlay p {
+  .home-services-overlay p {
     font-size: 13px;
   }
 }
 
 /* Extra small devices (≤ 420px) */
 @media (max-width: 420px) {
-.home-services-card {
+  .home-services-card {
     height: 200px;
   }
 
-.home-services-header h2 {
+  .home-services-header h2 {
     font-size: 20px;
   }
 }
-
-
 
 /*--------------------------------------------------------------
 # Services Section
@@ -1534,8 +1480,6 @@ section,
   inset: 0;
   border-radius: 0px;
 }
-
-
 
 /*--------------------------------------------------------------
 # Pricing Section
@@ -1673,9 +1617,10 @@ section,
   background: #111;
   color: #fff;
 }
+
 /* FOOTER */
 .footer-dark {
-  background: #111111; /* Dark Charcoal */
+  background: #111111;
   color: #ccc;
   padding: 80px 0 0;
 }
@@ -1743,7 +1688,7 @@ section,
 
 /* BOTTOM BAR */
 .footer-bottom {
-  background: #000; /* pure black */
+  background: #000;
   margin-top: 70px;
   padding: 25px 0;
   display: flex;
