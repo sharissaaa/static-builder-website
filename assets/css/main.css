@@ -11,6 +11,8 @@
 # Help: https://bootstrapmade.com/color-system/
 --------------------------------------------------------------*/
 /* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&display=swap');
+
 :root {
   --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Cardo",  sans-serif;
@@ -29,13 +31,15 @@
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: rgba(255, 255, 255, 0.5);  /* The default color of the main navmenu links */
-  --nav-hover-color: #ffffff; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #1a1a1a; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #1a1a1a; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: rgba(255, 255, 255, 0.5); /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: rgba(255, 255, 255, 0.7);  /* Default nav link color (clean, premium) */
+  --nav-hover-color: #ffffff;             /* Hover & active nav links */
+  --nav-mobile-background-color: #1a1a1a; /* Mobile nav background */
+  --nav-dropdown-background-color: #1a1a1a; /* Kept for safety (no dropdowns used) */
+  --nav-dropdown-color: rgba(255, 255, 255, 0.7); /* Mobile nav link color */
+  --nav-dropdown-hover-color: #ffffff;    /* Mobile nav hover & active */
 }
+
+
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
@@ -142,90 +146,82 @@ h6 {
 /*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
+/* ===== Premium Header Style ===== */
 .header {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 20px 0;
-  transition: all 0.5s;
-  z-index: 997;
-  border-bottom: 1px solid var(--background-color);
+  background: linear-gradient(180deg, #0c0f12, #090b0d);
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.header .logo {
-  line-height: 1;
+/* Logo */
+.header .sitename {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #ffffff;
+  text-transform: uppercase;
 }
 
-.header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+/* Navigation */
+.navmenu ul {
+  gap: 28px;
 }
 
-.header .logo h1 {
-  font-size: 32px;
-  margin: 0;
-  font-weight: 400;
-  color: var(--heading-color);
+.navmenu a {
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
 }
 
-.header .logo i {
-  font-size: 28px;
-  margin-right: 6px;
+.navmenu a:hover,
+.navmenu .active {
+  color: #ffffff;
 }
 
-.header .header-social-links {
-  padding-right: 15px;
+/* Underline hover effect */
+@media (min-width: 1200px) {
+  .navmenu a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: #ffffff;
+    bottom: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+  }
+
+  .navmenu a:hover::after,
+  .navmenu .active::after {
+    width: 70%;
+  }
 }
 
-.header .header-social-links a {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  padding-left: 6px;
-  display: inline-block;
+/* Social Icons */
+.header-social-links a {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  margin-left: 14px;
   transition: 0.3s;
-  font-size: 16px;
 }
 
-.header .header-social-links a:hover {
-  color: var(--accent-color);
+.header-social-links a:hover {
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
-.header .header-social-links a i {
-  line-height: 0px;
-}
-
-@media (max-width: 1200px) {
-  .header .logo {
-    order: 1;
-  }
-
-  .header .logo h1 {
-    font-size: 26px;
-  }
-
-  .header .logo i {
-    font-size: 20px;
-  }
-
-  .header .header-social-links {
-    order: 2;
-  }
-
-  .header .header-social-links a {
-    font-size: 16px;
-  }
-
-  .header .navmenu {
-    order: 3;
-  }
-}
-
-.scrolled .header {
-  border-color: color-mix(in srgb, var(--background-color) 90%, white 20%);
+/* Mobile */
+.mobile-nav-toggle {
+  color: #ffffff;
 }
 
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Navmenu - Desktop */
+
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
@@ -237,55 +233,66 @@ h6 {
     display: flex;
     list-style: none;
     align-items: center;
+    gap: 20px;
   }
 
   .navmenu li {
     position: relative;
   }
+  
 
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-color);
-    padding: 18px 15px;
-    font-size: 14px;
-    font-family: var(--nav-font);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    transition: 0.3s;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
+.navmenu a,
+.navmenu a:focus {
+  color: var(--nav-color);
+  padding: 18px 16px;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600; /* Infyya-like weight */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2.5px; /* Infyya spacing */
+  position: relative;
+}
 
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    transition: 0.3s;
-  }
 
-  .navmenu li:last-child a {
-    padding-right: 0;
-  }
-
-  .navmenu li:hover>a,
+  /* Hover + Active text */
+  .navmenu li:hover > a,
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--nav-hover-color);
   }
 
-  /* Remove dropdown styles since we don't have dropdowns anymore */
+  /* WHITE UNDERLINE EFFECT (Infyya style) */
+  .navmenu a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--nav-underline-color);
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.35s ease;
+  }
+
+  .navmenu a:hover::after,
+  .navmenu .active::after {
+    width: calc(100% - 32px);
+  }
+
+  /* Explicitly remove dropdown leftovers */
   .navmenu .dropdown,
-  .navmenu .dropdown ul,
-  .navmenu .dropdown .dropdown ul {
+  .navmenu .dropdown ul {
     display: none !important;
   }
 }
 
 /* Navmenu - Mobile */
+
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
@@ -305,49 +312,30 @@ h6 {
     display: none;
     position: absolute;
     inset: 60px 20px 20px 20px;
-    padding: 10px 0;
+    padding: 12px 0;
     margin: 0;
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: var(--nav-mobile-background-color);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
   }
 
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
-    padding: 10px 20px;
+    padding: 14px 22px;
     font-family: var(--nav-font);
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 500;
     display: flex;
     align-items: center;
     justify-content: space-between;
     white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
+    transition: color 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
   }
 
   .navmenu a:hover,
@@ -356,17 +344,9 @@ h6 {
     color: var(--nav-dropdown-hover-color);
   }
 
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(0); /* Changed from rotate(180deg) since no dropdown arrows */
-  }
-
-  /* Remove mobile dropdown styles */
-  .navmenu .dropdown,
-  .navmenu .dropdown ul {
-    display: none !important;
+  /* Disable underline on mobile */
+  .navmenu a::after {
+    display: none;
   }
 
   .mobile-nav-active {
@@ -374,56 +354,40 @@ h6 {
   }
 
   .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
+    color: #ffffff;
     position: absolute;
     font-size: 32px;
     top: 15px;
     right: 15px;
-    margin-right: 0;
     z-index: 9999;
   }
 
   .mobile-nav-active .navmenu {
     position: fixed;
-    overflow: hidden;
     inset: 0;
-    background: rgba(33, 37, 41, 0.8);
+    background: rgba(0, 0, 0, 0.85);
     transition: 0.3s;
   }
 
-  .mobile-nav-active .navmenu>ul {
+  .mobile-nav-active .navmenu > ul {
     display: block;
   }
-}
 
-/* Additional CSS to ensure proper navigation spacing */
-.navmenu ul {
-  gap: 5px; /* Add consistent gap between navigation items */
-}
-
-@media (min-width: 1200px) {
-  .navmenu a {
-    position: relative;
-  }
-  
-  .navmenu a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background: var(--accent-color);
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
-  }
-  
-  .navmenu a:hover:after,
-  .navmenu .active:after {
-    width: calc(100% - 30px);
+  /* Remove mobile dropdowns completely */
+  .navmenu .dropdown,
+  .navmenu .dropdown ul {
+    display: none !important;
   }
 }
+.contact-page .contact.section {
+    margin-bottom: 150px; /* This creates space after contact section */
+    padding-bottom: 50px; /* Additional padding inside contact section */
+}
 
+
+.contact-page .footer {
+    padding-top: 50px;
+}
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
@@ -742,67 +706,83 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
+/* Remove extra space below hero */
+
 .hero {
   width: 100%;
-  min-height: 30vh;
+  min-height: calc(100vh - 80px); /* IMPORTANT: fills screen */
   position: relative;
-  padding: 120px 0 60px 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #000; /* matches premium dark look */
+}
+
+.hero.section {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .hero h2 {
-  margin: 0 0 10px 0;
-  font-size: 38px;
+  margin-bottom: 25px;
+  font-size: 46px;
   font-weight: 700;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.hero h2 span {
+  display: inline-block;
 }
 
 .hero h2 .underlight {
   position: relative;
   z-index: 1;
-  padding: 0 5px;
-  display: inline-block;
+  padding: 0 6px;
 }
 
-.hero h2 .underlight:before {
+.hero h2 .underlight::before {
   content: "";
   position: absolute;
-  height: 50%;
-  bottom: 0;
   left: 0;
   right: 0;
+  bottom: 6px;
+  height: 45%;
   background: var(--accent-color);
   z-index: -1;
 }
 
 .hero p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.75);
   font-size: 18px;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.7;
 }
 
+/* Scroll indicator */
+.scroll-down {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .hero h2 {
     font-size: 32px;
   }
+
+  .hero p {
+    font-size: 16px;
+  }
 }
 
-.hero .btn-get-started {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  font-weight: 400;
-  font-size: 14px;
-  display: inline-block;
-  padding: 12px 40px;
-  border-radius: 4px;
-  transition: 0.5s;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.hero .btn-get-started:hover {
-  background-color: color-mix(in srgb, var(--accent-color) 90%, white 10%);
-}
 
 /*--------------------------------------------------------------
 # Gallery Section
@@ -812,6 +792,7 @@ section,
   overflow: hidden;
   border-radius: 10px;
 }
+
 
 .gallery .gallery-item img {
   transition: 0.3s;
@@ -867,129 +848,106 @@ section,
   margin: 0;
 }
 
+
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
-.about .content h2 {
-  font-weight: 700;
-  font-size: 24px;
-}
-
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .content ul li {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-}
-
-.about .content ul strong {
-  margin-right: 10px;
-}
-
-.about .content ul i {
-  font-size: 16px;
-  margin-right: 5px;
-  color: var(--accent-color);
-  line-height: 0;
-}
-
 /*--------------------------------------------------------------
-# Testimonials Section
+# About Section (INFYA Style)
 --------------------------------------------------------------*/
-.testimonials .testimonial-item {
-  background-color: var(--surface-color);
-  box-shadow: 0px 0 20px rgba(0, 0, 0, 0.1);
-  box-sizing: content-box;
-  padding: 30px;
-  margin: 40px 30px;
-  min-height: 320px;
+.about-section {
+  background: #111;
+  height: 95vh;              /* NOT full screen */
+  padding: 0 !important;
+  margin: 0 !important;
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  transition: 0.3s;
 }
 
-.testimonials .testimonial-item .stars {
-  margin-bottom: 15px;
+.about-section .container-fluid,
+.about-section .row {
+  width: 100%;
+  height: 100%;
 }
 
-.testimonials .testimonial-item .stars i {
-  color: #ffc107;
-  margin: 0 1px;
+.about-image {
+  height: 100%;
 }
 
-.testimonials .testimonial-item .testimonial-img {
-  width: 90px;
-  border-radius: 50%;
-  border: 4px solid var(--background-color);
-  margin: 0 auto;
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.testimonials .testimonial-item h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
+.about-content {
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;       /* vertical centering */
+  justify-content: center;   /* centers content vertically INSIDE padding */
+  padding: 140px 90px;  
 }
 
-.testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  margin: 0;
+.content-wrapper { 
+  max-width: 560px;
+  width: 100%;         /* controls text width */
 }
 
-.testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 auto 15px auto;
+.about-content h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
 }
 
-.testimonials .swiper-wrapper {
-  height: auto;
+.about-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cfcfcf;
+  margin-bottom: 16px;       /* tighter spacing */
 }
 
-.testimonials .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px 28px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: color-mix(in srgb, var(--default-color), transparent 85%);
-  opacity: 1;
+.about-btn:hover {
+  background: #fff;
+  color: #111;
 }
 
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--accent-color);
-}
+ /* Responsive */
 
-.testimonials .swiper-slide {
-  opacity: 0.3;
-}
-
-@media (max-width: 1199px) {
-  .testimonials .swiper-slide-active {
-    opacity: 1;
+@media (max-width: 991px) {
+  .about-section {
+    height: auto;
   }
 
-  .testimonials .swiper-pagination {
-    margin-top: 0;
+  .about-content {
+    padding: 50px 30px;
   }
 
-  .testimonials .testimonial-item {
-    margin: 40px 20px;
+  .content-wrapper {
+    max-width: 100%;
+  }
+
+  .about-content h2 {
+    font-size: 28px;
   }
 }
 
-@media (min-width: 1200px) {
-  .testimonials .swiper-slide-next {
-    opacity: 1;
-    transform: scale(1.12);
-  }
-}
+
 
 /*--------------------------------------------------------------
 # Gallery Details Section
@@ -1166,6 +1124,221 @@ section,
   padding: 0;
 }
 
+/* -------------------------------------------------------
+   HOME PAGE SERVICES SECTION(OUR DESIGN & BUILD SERVICES)
+----------------------------------------------------------*/
+
+.home-services-section {
+  background: #111111;
+  padding: 120px 0;
+  color: #fff;
+}
+
+.home-services-header h2 {
+  font-size: 32px;
+  letter-spacing: 3px;
+  font-weight: 600;
+}
+
+/* _._ Divider */
+.home-services-header .divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.home-services-header .divider span {
+  width: 80px;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+}
+
+.home-services-header .divider i {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  margin: 0 15px;
+}
+
+/* Service Cards */
+.home-services-card {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.home-services-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.home-services-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 30px;
+  transition: all 0.4s ease;
+}
+
+.home-services-overlay.center {
+  background: rgba(0,0,0,0.75);
+}
+
+.home-services-overlay h3 {
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.home-services-overlay p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* UnderLine instead of button */
+.home-services-underline {
+  width: 40px;
+  height: 1px;
+  background: #fff;
+  margin-top: 20px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s ease;
+}
+
+.home-services-card:hover .home-services-underline {
+  transform: scaleX(1);
+}
+
+
+
+
+.home-services-card:hover img {
+  transform: scale(1.05);
+  transition: transform 0.6s ease;
+}
+
+/* --------------------------------------------------
+   RESPONSIVE ADJUSTMENTS – SERVICES SECTION
+-------------------------------------------------- */
+
+/* Large tablets (≤ 1200px) */
+@media (max-width: 1200px) {
+  .home-services{
+    padding: 100px 0;
+  }
+
+.home-services-card {
+    height: 280px;
+  }
+
+.home-services-header h2 {
+    font-size: 30px;
+  }
+}
+
+/* Tablets (≤ 991px) */
+@media (max-width: 991px) {
+  .home-services-section {
+    padding: 90px 0;
+  }
+
+.home-services-header h2 {
+    font-size: 28px;
+    letter-spacing: 2px;
+  }
+
+.home-services-card {
+    height: 260px;
+  }
+
+.home-services-overlay h3 {
+    font-size: 18px;
+  }
+
+.home-services-overlay p {
+    font-size: 13px;
+  }
+}
+
+/* Small tablets / large phones (≤ 768px) */
+@media (max-width: 768px) {
+.home-services-section {
+    padding: 80px 0;
+  }
+
+.home-services-header h2 {
+    font-size: 24px;
+  }
+
+.home-services-header .divider span {
+    width: 60px;
+  }
+
+.home-services-card {
+    height: 240px;
+  }
+
+.home-services-overlay {
+    padding: 20px;
+  }
+
+  /* Always show arrow on mobile (no hover) */
+ .home-services-underline {
+    width: 40px;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Mobile phones (≤ 576px) */
+@media (max-width: 576px) {
+.home-services-section {
+    padding: 70px 0;
+  }
+
+.home-services-header h2 {
+    font-size: 22px;
+    letter-spacing: 1.5px;
+  }
+
+.home-services-card {
+    height: 220px;
+  }
+
+.home-services-overlay h3 {
+    font-size: 16px;
+    letter-spacing: 1.5px;
+  }
+
+.home-services-overlay p {
+    font-size: 13px;
+  }
+}
+
+/* Extra small devices (≤ 420px) */
+@media (max-width: 420px) {
+.home-services-card {
+    height: 200px;
+  }
+
+.home-services-header h2 {
+    font-size: 20px;
+  }
+}
+
+
+
 /*--------------------------------------------------------------
 # Services Section
 --------------------------------------------------------------*/
@@ -1238,6 +1411,8 @@ section,
   inset: 0;
   border-radius: 0px;
 }
+
+
 
 /*--------------------------------------------------------------
 # Pricing Section
@@ -1352,179 +1527,129 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
-}
-/*--------------------------------------------------------------
-# Reviews Section
---------------------------------------------------------------*/
-.reviews {
-  color: var(--default-color);
-  background-color: var(--surface-color);
-  padding: 100px 0;
+/* CTA STRIP */
+.cta-strip {
+  background: #8c8c8c;
+  padding: 60px 0;
 }
 
-.reviews .section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.reviews .section-header h2 {
+.cta-btn {
+  border: 1px solid #111;
+  padding: 14px 34px;
+  color: #111;
+  text-decoration: none;
   font-size: 14px;
-  font-weight: 400;
-  padding: 0;
-  line-height: 1px;
-  margin: 0;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  position: relative;
-  font-family: var(--default-font);
-}
-
-.reviews .section-header h2::after {
-  content: "";
-  width: 120px;
-  height: 1px;
-  display: inline-block;
-  background: var(--accent-color);
-  margin: 4px 10px;
-}
-
-.reviews .section-header p {
-  color: var(--heading-color);
-  margin: 0;
-  font-size: 36px;
-  font-weight: 400;
-  font-family: var(--heading-font);
-  margin-top: 15px;
-}
-
-.review-item {
-  background: var(--background-color);
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
-.review-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  border-color: var(--accent-color);
+.cta-btn:hover {
+  background: #111;
+  color: #fff;
+}
+/* FOOTER */
+.footer-dark {
+  background: #111111; /* Dark Charcoal */
+  color: #ccc;
+  padding: 80px 0 0;
 }
 
-.review-content {
-  flex: 1;
+.footer-logo {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
   margin-bottom: 25px;
 }
 
-.review-content .stars {
-  color: #ffc107;
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.review-content .stars i {
-  margin-right: 3px;
-}
-
-.review-text {
-  font-size: 16px;
-  line-height: 1.8;
-  color: var(--default-color);
-  font-style: italic;
-  font-family: var(--default-font);
-  margin-bottom: 0;
-}
-
-.review-author {
-  padding-top: 20px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.review-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 15px;
-  border: 3px solid var(--surface-color);
-}
-
-.review-author-info h4 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: var(--heading-color);
-  font-family: var(--default-font);
-}
-
-.review-author-info span {
+.footer-text {
   font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  font-family: var(--default-font);
+  line-height: 1.9;
+  color: #aaa;
+  max-width: 420px;
 }
 
-/* Review Statistics */
-.review-stats {
-  margin-top: 60px;
+/* Titles */
+.footer-title {
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: #fff;
 }
 
-.stat-item {
-  padding: 30px 20px;
-  background: var(--background-color);
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+/* QUICK LINKS */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.stat-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: var(--accent-color);
+.footer-links li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.stat-item h3 {
-  font-size: 42px;
-  font-weight: 700;
-  color: var(--heading-color);
-  margin-bottom: 10px;
-  font-family: var(--heading-font);
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
 }
 
-.stat-item p {
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* CONTACT SECTION */
+.footer-contact p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #aaa;
+  margin: 0;
+}
+
+.footer-contact .line {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 0;
+}
+
+.footer-contact strong {
+  color: #fff;
+}
+
+/* BOTTOM BAR */
+.footer-bottom {
+  background: #000; /* pure black */
+  margin-top: 70px;
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 13px;
+  color: #888;
+}
+
+/* SOCIAL ICONS */
+.footer-social a {
+  color: #fff;
+  margin-left: 18px;
   font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-bottom: 0;
-  font-family: var(--default-font);
 }
 
-/* Responsive adjustments */
+.footer-social a:hover {
+  opacity: 0.7;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .reviews {
-    padding: 60px 0;
-  }
-  
-  .reviews .section-header p {
-    font-size: 28px;
-  }
-  
-  .review-item {
-    padding: 20px;
-    margin-bottom: 30px;
-  }
-  
-  .stat-item {
-    margin-bottom: 30px;
-  }
-  
-  .stat-item h3 {
-    font-size: 36px;
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
   }
 }
