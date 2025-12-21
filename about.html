@@ -32,10 +32,10 @@
 
 </head>
 
-<body class="about-page">
+<body class="interior-page">
 
   <!-- Header -->
-  <header id="header" class="header about-header sticky-top">
+  <header id="header" class="header interior-page-header">
 
     <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
 
@@ -65,8 +65,9 @@
 
     </div>
   </header>
-  <!-- ABOUT PAGE HERO / BREADCRUMB -->
-  <section class="page-hero about-hero">
+
+  <!-- Interior PAGE HERO / BREADCRUMB -->
+  <section class="interior-page-hero">
     <div class="container">
       <div class="hero-content">
 
@@ -231,23 +232,29 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const header = document.querySelector(".about-header");
-      const hero = document.querySelector(".about-hero");
+      const header = document.querySelector(".interior-page-header");
+      const heroContent = document.querySelector(".interior-page-hero .hero-content");
 
-      if (!header || !hero) return;
+      if (!header || !heroContent) return;
 
-      window.addEventListener("scroll", () => {
-        const heroEnd = hero.offsetTop + hero.offsetHeight;
-        const scrollPos = window.scrollY + header.offsetHeight;
+      function handleScroll() {
+        const headerHeight = header.offsetHeight;
+        const heroTextTop = heroContent.getBoundingClientRect().top;
 
-        if (scrollPos < heroEnd) {
-          header.classList.add("is-transparent");
-        } else {
+        // EXACT INFYA BEHAVIOR:
+        // When hero text touches navbar -> header becomes solid
+        if (heroTextTop <= headerHeight) {
           header.classList.remove("is-transparent");
+        } else {
+          header.classList.add("is-transparent");
         }
-      });
+      }
+
+      window.addEventListener("scroll", handleScroll);
+      handleScroll(); // run once on load
     });
   </script>
+
 
 
 </body>
