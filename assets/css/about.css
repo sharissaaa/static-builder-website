@@ -1,0 +1,113 @@
+/* # ============================================================
+# File Name    : about.css
+# Created On   : 19-12-2025
+# Last Update  : 29-12-2025
+# Project      : Website Homepage
+# Customized By: Sharissa Marian Hurtis
+# Description  : Homepage-specific styles including hero
+#                section, featured service previews, homepage
+#                imagery, and primary call-to-action layouts.
+# Usage        : Loaded ONLY on index/home page
+# ============================================================ */
+
+
+
+/*--------------------------------------------------------------
+# About Section
+--------------------------------------------------------------*/
+.about-section {
+  background: #111;
+  height: 95vh;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+}
+
+.about-section.section {
+  padding: 0 !important;
+}
+
+.about-section .container-fluid,
+.about-section .row {
+  width: 100%;
+  height: 100%;
+}
+
+.about-image {
+  height: 100%;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-content {
+  background: #111;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140px 90px;
+}
+
+.about-content-wrapper {
+  max-width: 560px;
+  width: 100%;
+}
+
+.about-content h2 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 22px;
+  letter-spacing: 1px;
+}
+
+.about-content p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #cfcfcf;
+  margin-bottom: 16px;
+}
+
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding: 12px 28px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  background: #fff;
+  color: #111;
+}
+
+/*--------------------------------------------------------------
+# Responsive Design - About Section
+--------------------------------------------------------------*/
+@media (max-width: 991px) {
+  .about-section {
+    height: auto;
+  }
+
+  .about-content {
+    padding: 50px 30px;
+  }
+
+  .about-content-wrapper {
+    max-width: 100%;
+  }
+
+  .about-content h2 {
+    font-size: 28px;
+  }
+}
