@@ -515,3 +515,62 @@
     font-size: 0.9rem;
   }
 }
+
+/*--------------------------------------------------------------
+# Mobile View - Centered Heading Only
+--------------------------------------------------------------*/
+
+/* Mobile Only Heading */
+.hero-mobile-heading {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop hero content on mobile */
+  .hero-content {
+    display: none !important;
+  }
+  
+  /* Show mobile heading */
+  .hero-mobile-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 150px;
+    padding: 40px 0;
+  }
+  
+  .hero-mobile-heading h1 {
+    font-size: 32px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Adjust hero section padding for mobile */
+  .interior-page .interior-page-hero {
+    padding: 70px 0 50px;
+  }
+  
+  /* Ensure breadcrumb is hidden on mobile */
+  .breadcrumb {
+    display: none;
+  }
+}
+
+/* For extra small screens */
+@media (max-width: 480px) {
+  .hero-mobile-heading h1 {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+  
+  .hero-mobile-heading {
+    min-height: 120px;
+    padding: 30px 0;
+  }
+}
