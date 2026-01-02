@@ -1,7 +1,7 @@
 /* # ============================================================
 # File Name    : about.css
 # Created On   : 19-12-2025
-# Last Update  : 29-12-2025
+# Last Update  : 02-01-2026
 # Project      : Website Homepage
 # Customized By: Sharissa Marian Hurtis
 # Description  : Homepage-specific styles including hero
@@ -53,7 +53,7 @@
   padding: 140px 90px;
 }
 
-.about-content-wrapper {
+.about-box {
   max-width: 560px;
   width: 100%;
 }
@@ -109,5 +109,203 @@
 
   .about-content h2 {
     font-size: 28px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Mobile View - Centered Heading Only
+--------------------------------------------------------------*/
+
+/* Mobile Only Heading */
+.hero-mobile-heading {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* Hide desktop hero content on mobile */
+  .hero-content {
+    display: none !important;
+  }
+  
+  /* Show mobile heading */
+  .hero-mobile-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 150px;
+    padding: 40px 0;
+  }
+  
+  .hero-mobile-heading h1 {
+    font-size: 32px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin: 0;
+    color: #ffffff;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Adjust hero section padding for mobile */
+  .interior-page .interior-page-hero {
+    padding: 70px 0 15px;
+  }
+  
+  /* Ensure breadcrumb is hidden on mobile */
+  .breadcrumb {
+    display: none;
+  }
+}
+
+/* For extra small screens */
+@media (max-width: 480px) {
+  .hero-mobile-heading h1 {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+  
+  .hero-mobile-heading {
+    min-height: 120px;
+    padding: 30px 0;
+  }
+}
+
+/*--------------------------------------------------------------
+# INFYA-style Layout for Mobile
+--------------------------------------------------------------*/
+@media (max-width: 768px) {
+  .about-section {
+    height: auto;
+    min-height: 100vh;
+    display: block;
+  }
+
+  .about-section .container-fluid {
+    padding: 0;
+  }
+
+  .about-section .row {
+    flex-direction: column;
+    height: auto;
+  }
+
+  /* Image Section - Full width, reduced height */
+  .about-image {
+    height: 40vh;
+    min-height: 300px;
+    width: 100%;
+  }
+
+  .about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Content Section - INFYA style */
+  .about-content {
+    padding: 50px 25px;
+    text-align: center;
+    display: block;
+    background: #111;
+  }
+
+  .about-box {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Title styling similar to INFYA */
+  .about-content h2 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .about-content h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 1px;
+    background: #fff;
+  }
+
+  /* Paragraph styling */
+  .about-content p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #cfcfcf;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+
+  /* INFYA-style contact/bullet points */
+  .about-contact-info {
+    margin-top: 30px;
+    text-align: left;
+  }
+
+  .about-contact-info p {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .about-contact-info p:before {
+    content: "•";
+    margin-right: 10px;
+    color: #fff;
+  }
+
+  /* Bullet points for services/deliverables */
+  .about-services {
+    margin-top: 30px;
+    text-align: left;
+  }
+
+  .about-services p {
+    font-size: 14px;
+    color: #cfcfcf;
+    margin-bottom: 8px;
+    padding-left: 15px;
+    position: relative;
+  }
+
+  .about-services p:before {
+    content: "-";
+    position: absolute;
+    left: 0;
+    color: #fff;
+  }
+}
+
+/* For very small screens */
+@media (max-width: 480px) {
+  .about-image {
+    height: 35vh;
+    min-height: 250px;
+  }
+
+  .about-content {
+    padding: 40px 20px;
+  }
+
+  .about-content h2 {
+    font-size: 22px;
+  }
+
+  .about-content p {
+    font-size: 13px;
+    line-height: 1.7;
   }
 }

@@ -553,7 +553,7 @@
   
   /* Adjust hero section padding for mobile */
   .interior-page .interior-page-hero {
-    padding: 70px 0 50px;
+    padding: 70px 0 15px;
   }
   
   /* Ensure breadcrumb is hidden on mobile */
